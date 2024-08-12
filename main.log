@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.5)  11 AUG 2024 19:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.5)  11 AUG 2024 23:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1318,54 +1318,64 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-) (./the_proof.tex) (./main.bbl (./main.brf)
-\tf@brf=\write6
-\openout6 = `main.brf'.
-
-
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-)
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-8.
- (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+) (./the_proof.tex
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 38.
+ine 20.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}] (./main.aux)
+hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-mathsy.enc}]) (./main.bbl (./main.brf)
+\tf@brf=\write6
+\openout6 = `main.brf'.
+
+)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
+8.
+
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+Package fancyhdr Warning: \headheight is too small (17.07164pt): 
+(fancyhdr)                Make it at least 24.4432pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.4432pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-7.37157pt}.
+
+[2] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: 5FBD768815DC89D07656F37AF1C9C2E2;177.
  ) 
 Here is how much of TeX's memory you used:
- 39902 strings out of 474222
- 862229 string characters out of 5748734
- 1931975 words of memory out of 5000000
- 61341 multiletter control sequences out of 15000+600000
- 606639 words of font info for 78 fonts, out of 8000000 for 9000
+ 39956 strings out of 474222
+ 863090 string characters out of 5748734
+ 1942975 words of memory out of 5000000
+ 61380 multiletter control sequences out of 15000+600000
+ 609631 words of font info for 79 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 95i,5n,96p,1627b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,12n,96p,1627b,575s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/
-texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/
-lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb>
-Output written on main.pdf (1 page, 191677 bytes).
+usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/p
+ublic/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share
+/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/l
+mr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pf
+b></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmtt9.pfb>
+Output written on main.pdf (2 pages, 262364 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,3 +1,27 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{Nav18}
+
+\bibitem[Der13]{Deroin2013}
+Bertrand Deroin.
+\newblock The {P}oisson boundary of a locally discrete group of diffeomorphisms
+  of the circle.
+\newblock {\em Ergodic Theory Dynam. Systems}, 33(2):400--415, 2013.
+
+\bibitem[Kai85]{Kaimanovich1985}
+V.~A. Kaimanovich.
+\newblock An entropy criterion of maximality for the boundary of random walks
+  on discrete groups.
+\newblock {\em Dokl. Akad. Nauk SSSR}, 280(5):1051--1054, 1985.
+
+\bibitem[Kai00]{Kaimanovich2000}
+Vadim~A. Kaimanovich.
+\newblock The {P}oisson formula for groups with hyperbolic properties.
+\newblock {\em Ann. of Math. (2)}, 152(3):659--692, 2000.
+
+\bibitem[Nav18]{Navas2018}
+Andr{\'e}s Navas.
+\newblock Group actions on 1-manifolds: a list of very concrete open questions.
+\newblock In {\em Proceedings of the {I}nternational {C}ongress of
+  {M}athematicians---{R}io de {J}aneiro 2018. {V}ol. {III}. {I}nvited
+  lectures}, pages 2035--2062. World Sci. Publ., Hackensack, NJ, 2018.
 
 \end{thebibliography}
