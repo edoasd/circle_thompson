@@ -1,0 +1,68 @@
+\section{There is a linear number of disjoint intervals along the walk}
+\textbf{NOTE TO THE AUTHORS} The definition of $Z_N$ has been slightly altered to make the notation in the entropy lower bound cleaner... (i encountered annoying technical issues when trying to properly define the set of collections and their corresponding trajectories).
+
+Consider the space $(S^1, \nu)$ where $\nu$ is the unique $\mu$-stationary probability measure on $S^1$.
+From now on, fix an element $a \in T \setminus \{e_T\}$ and a closed interval $I \subset S^1$ such that $\mathrm{supp}(a) \subseteq I$ and $\nu(I) < 1$.
+For every $n \in \N$, define the random variable $Z_n \in \N$ 
+as the maximal number of mutually disjoint intervals in $\{I, w_1^{-1}(I), \cdots, w_n^{-1}(I)\}$ for which the next step the random walk takes is either $1$ or $a$:
+$$Z_n := \max\{k | \exists \text{distinct}\; i_1,..,i_k \in [n] \;\text{s.t.}\; \{w_{i_j}(I)\}_{j=1}^k\; \text{are disjoint and}\; \forall j\;\;w_{i_j+1}w_{i_j}^{-1} \in \{1,a\}\}.$$
+
+\begin{proposition}[There is a linear number of disjoint intervals along the walk]
+    $$\E[Z_N] \gtrsim n$$
+\end{proposition}
+
+\begin{lemma}[Greedy algorithm for getting disjoint intervals]
+For any $s \in \N$ and sufficiently large $N \in \N$ we have
+\[\E[Z_N] \ge \dfrac{N}{2s} (\mu(1)+\mu(a)) \P\left[ w_{is}(I) \cap I = \emptyset \emph{ for all } i \in \N \right]. \]
+\end{lemma}
+
+Just for the sake of naming things, let us call $\P(w_{is}(I) \cap I = \emptyset \;for\;all\;i \in \N)$ the \textbf{probability of never intersecting} with \textbf{sparsity parameter} $s$.
+
+\begin{proof}
+We greedily choose points along the arithmetic progression $\{0,s,2s,3s,4s,...\} \subset \N$.
+Without loss of generality let $N = ns$ for some $n \in \N$.
+For each $j=1,...,n$ define the event 
+\[C_j = \{w_{is}(I)\cap w_{js}(I) = \emptyset  \text{ for all }i=1,...,j-1\}.\]
+By greedy choice, the Markov property, and the reversibility of the random walk we have
+\[\E[Z_N] \geq \sum_{j=1}^n \P[C_j\;and\;w_{js+1}w_{js}^{-1} \in \{1,a\}] = (\mu(1)+\mu(a)) \sum_{j=1}^n \P\left[ w_{is}(I) \cap I = \emptyset \text{ for all }i=1,...,j-1\right]. \]
+Since the events $\{w_{is}(I) \cap I = \emptyset \text{ for all }i=1,...,j-1\}$ are nested in $j$ we obtain 
+\[ \P\left[ w_{is}(I) \cap I = \emptyset \text{ for all }i=1,...,j-1\right]  \xrightarrow[j \to \infty]{} \P\left[ w_{is}(I) \cap I = \emptyset \text{ for all }i \in \N\right],\]
+and for the Cesaro averages we conclude that 
+\[\dfrac{s}{N} \sum_{j=1}^n \P\left[ w_{is}(I) \cap I = \emptyset \text{ for all }i=1,...,j\right] \xrightarrow[n \to \infty]{} \P\left[ w_{is}(I) \cap I = \emptyset \text{ for all }i \in \N\right]. \]
+The result follows for sufficiently large $N$.
+\end{proof}
+
+\begin{proposition}[Exponential contraction in mean to the boundary point]
+    There exists $\lambda>0$ and $C > 0$ such that
+    $$\sup_{x \in \mathbb{S}^1} \E[d(w_n x, \xi)] \leq C e^{-\lambda n },$$
+\end{proposition}
+\begin{proof}
+    See Proposition 4.4 in the first arxiv version of "Probabilistic Tits Alternative for circle diffeomorphisms" by Martin Gilabert Vio.
+\end{proof}
+
+\begin{lemma}[Lower bound on the probability of never intersecting]
+    There exists a sparsity $s \in \N$ and $\Xi \subseteq \mathbb{S}\setminus I$ of measure $\nu(\Xi) \ge (1-\nu(I))/2$ such that
+    \[ \P\left[ w_{is}(I) \cap I = \emptyset \emph{ for all }i \in \N \mid \xi \in \Xi\right]  > 4/5.\]
+    As a consequence, we have that
+    \[\E [Z_N] \geq \frac{N}{2s} (\mu(1)+\mu(a)) \nu(\Xi) \P\left[ w_{is}(I) \cap I = \emptyset \emph{ for all }i \in \N \mid \xi \in \Xi\right] \gtrsim N.\]
+\end{lemma}
+
+\begin{proof}
+    Since $\nu$ is continuous we have
+    \[\nu(\{\xi \mid  0 < d(\xi,I)<\epsilon\}) \xrightarrow[\epsilon \to 0]{} 0,\]
+    so there exists $\epsilon>0$ such that
+    \[\Xi := \{\xi \mid  d(\xi,I)>\epsilon\}\]
+    has $\nu$-measure $\geq (1-\nu(I))/2$.
+    Now choose a sparsity $s$ such that $e^{-\lambda s/2} < \min\{\epsilon \nu(\Xi)/2, 1/10\}$, and denote the endpoints of the interval by $I = [l,r]$.
+    For each $i \in \N$ we use the assumption and the Markov inequality to get
+    \begin{align*} \nu(\Xi) \P\left[ w_{is}(I) \cap I \neq \emptyset \mid \xi \in \Xi\right]  
+    & \leq \nu(\Xi) \P\left[  \max\{d(w_{is}(l), \xi), d(w_{is}(r), \xi)\} > \epsilon \mid \xi \in \Xi \right] \\ & = \P\left[ \max\{d(w_{is}(l), \xi), d(w_{is}(r), \xi)\} > \epsilon\right] 
+    \leq e^{-\lambda is}\frac{2}{\epsilon}\end{align*} 
+    and hence
+    \[ \P\left[ w_{is}(I) \cap I \neq \emptyset \mid \xi \in \Xi \right] 
+    \leq 2 e^{-\lambda s/2} e^{-\lambda (i-1)s}.\]
+    
+    By the union bound we get a geometric series and conclude that
+    \[ \P\left[ \text{there exists }i \text{ such that }w_{is}(I) \cap I \neq \emptyset \mid \xi \in \Xi \right] \leq 2 e^{-\lambda s/2} \leq 1/5. \qedhere \]
+\end{proof}
+

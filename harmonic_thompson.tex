@@ -1,0 +1,142 @@
+\section{Proof of Proposition \ref{prop:lamps}}
+\subsection{The lamp boundary on $T$} \textcolor{blue}{Maybe state this for $\mathrm{PPSL_2}(\Z)$ too?} %and $\mathrm{PPSL_2}(\R)$}
+In this subsection we revisit the construction of a boundary of Thompson's $F$ by Kaimanovich in \cite{Kaimanovich2017} and adapt it to Thompson's $T$. Even though the arguments are almost identical to the ones in \cite{Kaimanovich2017, Stankov2021} we spell out the details for completeness.%Though we only consider the case of Thompson's $T$, the arguments in \cite{Stankov2021} show that this construction can be replicated in any subgroup of $F$ or of Monod's group $H(\Z)$ of piecewise projective homeomorphisms of the line that is not locally solvable.
+
+Given an element $g \in T$, define a finitely supported function $\cC_g \colon \Z[1/2]/\Z \to \Z$ by setting 
+\[
+\cC_g(x) = \log_2\left((g^{-1})'(x^+)\right) - \log_2\left((g^{-1})'(x^-)\right)
+\]for $x \in \Z[1/2]/\Z$, where $(g^{-1})'(x^+)$ (resp. $(g^{-1})'(x^-)$ is the left (resp. right) derivative of $g^{-1}$ at $x$. That is, $\cC_g(x)$ is the derivative jump of $g^{-1}$ at $x$ in base 2. This definition differs slightly from those used in \cite{Kaimanovich2017, Stankov2021}, but this difference is necessary since we consider \emph{right} random walks and the \emph{left} action of $T$ on $S^1$.
+
+Denote the set of all (not necessarily finitely supported) functions from $\Z[1/2]/\Z \to \Z$ by $\mathrm{conf}(\Z[1/2], \Z)$. %To define a \emph{left} action of $T$ on $\mathrm{conf}(\Z[1/2]/\Z, \Z)$, consider first the \emph{right} action of $S^1 \curvearrowleft_R T$ defined on $x \in S^1$ and $g \in T$ by $(x)R_g = g^{-1}(x)$. 
+Define a left action of $T$ on $\mathrm{conf}(\Z[1/2]/\Z, \Z)$ by
+\[
+(g, \cC) \mapsto \left(S_g \cC \colon x \in \Z[1/2]/\Z \mapsto \cC(g^{-1}(x))\right).
+\] By the chain rule, we have
+\[
+\cC_{gh}(x) = \log_2\left((h^{-1})'(g^{-1}(x)^+)\right) - \log_2\left((h^{-1})'(g^{-1}(x)^-)\right) + \log_2\left((g^{-1})'(x^+)\right) - \log_2\left((g^{-1})'(x^-)\right)
+\]for all $g,h \in G$ and $x \in \Z[1/2]/\Z$, that is, 
+\[
+\cC_{gh} = \cC_g + S_g\cC_h.
+\]
+\textcolor{blue}{Define a second action of $T$ on $\mathrm{conf}(\Z[1/2]/\Z, \Z)$ by $(g.\cC) \mapsto \cC_g + S_g\cC$, so we have $\cC_{gh} = g.\cC_h$ for all $g,h \in T$. This is the action on $\mathrm{conf}(\Z[1/2]/\Z, \Z)$ that will define a certain nontrivial boundary for $T$.}
+
+Let $\mu$ be a nondegenerate probability measure on Thompson's group $T$. To prove transience of the random walks on $T$-orbits of elements of $S^1$ we emulate \cite[Theorem 25]{Kaimanovich2017}, for which we need a comparison lemma for Markov operators.
+\begin{proposition}[\cite{BaldiLohouePeyriere1977}]\label{prop:comparison}
+    Let $P_1(\cdot, \cdot), P_2(\cdot, \cdot)$ be doubly stochastic kernels on a countable set $X$ such that $P_2(\cdot, \cdot)$ is symmetric and there exists an $\epsilon > 0$ such that
+    \[
+    P_1(x,y) \geq \epsilon P_2(x,y)
+    \]for all $x,y \in X$.
+
+    Then the Markov process determined by $P_1$ and started at $x \in X$ is transient if the Markov process determined by $P_2$ and started at $x \in X$ is transient.
+\end{proposition}
+
+\begin{lemma}
+    For any $x \in S^1$, the random walk driven by $\mu$ on $\mathrm{Orb}_T(x)$ is transient.
+\end{lemma} 
+\begin{proof}
+    Fix $x \in S^1$ and find $f,g \in T$ such that there exist disjoint intervals $I_1, I_2, J_1, J_2 \subset S^1$ with $0 \not \in I_1 \cup I_2 \cup J_1 \cup J_2$ and 
+    \[
+    f(S^1 \setminus I_2) \subseteq I_1,\quad g(S^1 \setminus J_2) \subseteq J_1.
+    \]
+    By Klein's ping-pong lemma, $f$ and $g$ generate a free group inside $T$ and the orbit of 0 under this free group is free. Let $\tilde{\mu}$ be the symmetric measure on $\{f,f^{-1}, g, g^{-1}\}$. The random walk driven by $\tilde{\mu}$ on $\mathrm{Orb}_{\langle f,g\rangle}(x)$ starting at $x$ is transient, since it is the symmetric random walk on the Cayley graph of the free group on two generators. Let $n \in \N$ such that the support of $\mu^{\ast n}$ contains $f$ and $g$. Then there exists an $\epsilon > 0$ such that $\mu \geq \epsilon \tilde{\mu}$, so Proposition \ref{prop:comparison} gives that the random walk on $\mathrm{Orb}_T(x)$ driven by $\mu^{\ast n}$ and started at $x$ is transient. We conclude that the random walk driven by $\mu$ on $\mathrm{Orb}_T(x)$ is transient too.
+    \end{proof}
+
+
+% indeed, since different generating sets yield quasi-isometric Schreier graphs and these are all simultaneously recurrent or transient %\textcolor{blue}{siento que esto debería ser verdad pero no cacho una referencia XD This is known as Kanai's theorem \cite{Kanai1986}; see also \cite[Theorem 2.17]{LyonsPeresbook2021}} 
+
+\subsection{Harmonic functions}
+In this subsection, $\mu$ is a finitely supported nondegenerate probability measure on Thompson's group $T$. We denote by $\cC_\infty \colon (G^\N, \P) \to (\mathrm{conf}(\Z[1/2]/\Z,\Z), \tilde{\nu})$ the Kaimanovich boundary that arises from the stabilization of derivative jumps on the $T$-orbit of 0 in $S^1$. %Thus $\cC_\infty(\omega) \colon \Z[1/2]/\Z \to \Z$ is finitely supported. 
+We also write $\xi \colon (G^\N, \P) \to (S^1, \nu)$ for the boundary map that arises from the natural action of $T$ on the circle.
+
+Since the measure $\tilde{\nu}$ is nontrivial, there exists a $y \in \Z[1/2]/\Z$ and a $k \in \Z$ such that the bounded function $f \colon G \to [0,1]$ defined on $g \in G$ by
+\[
+f(g) = \P_g\left[ \mathbf{w} \in G^\N \mid \cC_\infty(\mathbf{w})(y) = k \right]
+\]satisfies $f(e_T) > 0$.
+The function $f$ is $\mu$-harmonic because the set \[\{\mathbf{w} \in G^\N  \mid \cC_\infty(\mathbf{w})(y) = k\}\] is shift-invariant up to $\P$-measure zero.
+
+\begin{lemma}\label{lemma:gn}
+        There exists a sequence $\{g_n\}_{n \in \N} \subset T$ where  $\mathrm{supp}(g_n)$ are closed intervals containing $y$ and such that 
+    %    \begin{itemize}
+    %        \item $\mathrm{diam}(\mathrm{supp}(g_n)) \xrightarrow{n \to \infty} 0$,
+    %        \item $f(g_n) \xrightarrow{n \to \infty} 0$, and
+    %        \item $g_nx \xrightarrow{n \to \infty} y$ for all $x \in $
+    %    \end{itemize}hold.
+        \[\mathrm{diam}(\mathrm{supp}(g_n)) \xrightarrow{n \to \infty} 0 \quad \text{ and } \quad f(g_n) \xrightarrow{n \to \infty} 0.\]
+\end{lemma}
+    \begin{proof}
+Let $n \in \N,\, n \geq 2$ and define the function $g_n \in T$ as
+\[
+g_n(x) = \begin{cases}
+  %  y + 2^n(x-y) & \text{ if }\abs{x - y} \leq 2^{-4n}\\
+  %    y - 2^{-n} + \left(\frac{2^{3n} - 2^{2n}}{2^{3n} - 2^n}\right)( x - y %+ 2^{-n}) &\text{ if } 2^{-4n} < \abs{x - y} \leq 2^{-n}\\
+  %  x & \text{ if } 2^{-n} < \abs{x - y}.
+  y + 2^n(x - y) & \text{ if } y \leq x < y + 2^{-2n} \\
+  y + 2^{-n} - 2^{-3n} + 2^{-n}(x-y) & \text{ if }y + 2^{-2n} < x < y + 2^{-2n} + 2^{-n}\\
+   x & \text{ elsewhere,}
+\end{cases}
+\]
+see Figure \ref{fig:gn}.
+\begin{figure}[h]
+    \centering
+\begin{tikzpicture}[scale = 4]
+\draw[-] (0,0) -- (0,1) -- (1,1) -- (1,0) -- (0,0);
+\node[below, scale=0.5] at (0,0) {$0$};
+\node[below, scale=0.5] at (1,0) {$1$};
+\node[left, scale=0.5] at (0,1) {$1$};
+
+
+\draw[domain=0:1/2, smooth, variable=\x, green] plot ({\x}, {\x});
+\draw[domain=1/2:1/2 + 1/2^6, smooth, variable=\x, green] plot ({\x}, {1/2 + 8*(\x- 1/2)});
+\draw[domain=1/2 + 1/2^6:1/2 + 1/2^6 + 1/2^3, smooth, variable=\x, green] plot ({\x}, {1/2 + 1/2^3 - 1/2^9 + 1/2^3*(\x - 1/2)});
+\draw[domain=1/2 + 1/2^6 + 1/2^3:1, smooth, variable=\x, green] plot ({\x}, {\x});
+
+
+\draw[domain=0:1/2, smooth, variable=\x, blue] plot ({\x}, {\x});
+\draw[domain=1/2:1/2 + 1/16, smooth, variable=\x, blue] plot ({\x}, {1/2 + 4*(\x- 1/2)});
+\draw[domain=1/2 + 1/16:1/2 + 1/16 + 1/4, smooth, variable=\x, blue] plot ({\x}, {1/2 + 1/4 - 1/64 + 1/4*(\x - 1/2)});
+\draw[domain=1/2 + 1/16 + 1/4:1, smooth, variable=\x, blue] plot ({\x}, {\x});
+
+\end{tikzpicture}
+    \caption{The map $g_n$ for $y = 1/2,\, n = 2$ (blue) and $n = 3$ (green).}
+    \label{fig:gn}
+\end{figure}
+
+Notice that
+\begin{itemize}
+    \item $g_n (y) = y$,
+    \item $\mathrm{supp}(g_n)$ is a dyadic interval containing $y$ and of length $2^{-n} + 2^{-2n}$, and
+    \item the derivative jump of $g_n$ at $y$ is equal to $2^{n}$.
+\end{itemize}
+Thus $\mathrm{diam}(\mathrm{supp}(g_n)) \xrightarrow{n \to \infty} 0$. Moreover, whenever $g \in T$ fixes $y$ we have
+\[
+f(g) = \P_g\left[ \cC_\infty(\mathbf{w})(y) = k\right] = \P\left[\cC_\infty(\mathbf{w})(y) = k - \log_2 (g')^+(y) + \log_2 (g')^-(y)\right]
+\] so
+\[
+f(g_n) = \P\left[ \cC_\infty(\mathbf{w})(y) = k - n\right]
+\]converges to 0 as $n \to \infty$, as desired.
+    \end{proof}
+    
+\begin{proposition}
+There is no function $h \in L^\infty(S^1, \nu)$ such that 
+\[
+f(g) = \int_{S^1}h(gx) \dd \nu(x)
+\]for all $g \in G$. In particular, $(S^1, \nu)$ is not the Poisson boundary of $(T, \mu)$.
+\end{proposition}
+\begin{proof}
+    Suppose, towards a contradiction, that such a function $h \in L^\infty(S^1, \nu)$ exists. Set $I_n = \mathrm{supp}(g_n)$ where the $g_n$ are as in Lemma \ref{lemma:gn}. The equality
+    \[
+    f(g_n) = \int_{S^1}h(g_nx) \dd \nu(x) = \int_{S^1\setminus I_n}h(g_nx) \dd \nu(x)  + \int_{I_n}h(g_nx) \dd \nu(x)
+    \] and
+    \[
+    \abs{\int_{I_n}h(g_nx) \dd \nu(x)} \leq \nu(I_n) \norm{h}_\infty
+    \] imply that
+    \[
+    \int_{S_1\setminus I_n}h(g_nx) \dd \nu(x) \xrightarrow{n \to \infty} 0,
+    \]since $\nu$ is nonatomic.
+    
+    But \[\int_{S_1\setminus I_n}h(g_nx) \dd \nu(x) = \int_{S^1 \setminus I_n}h(x) \dd \nu(x),\] hence the dominated convergence theorem shows that
+    \[
+    f(e_T) = \int_{S^1}h(x) \dd \nu(x) = 0.
+    \]This is a contradiction.
+\end{proof}
+

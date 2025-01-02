@@ -1,4 +1,9 @@
-\begin{thebibliography}{Nav18}
+\begin{thebibliography}{DKN07}
+
+\bibitem[BLP77]{BaldiLohouePeyriere1977}
+Paolo Baldi, No\"el Lohou\'e, and Jacques Peyri\`ere.
+\newblock Sur la classification des groupes r\'ecurrents.
+\newblock {\em C. R. Acad. Sci. Paris S\'er. A-B}, 285(16):A1103--A1104, 1977.
 
 \bibitem[Der13]{Deroin2013}
 Bertrand Deroin.
@@ -6,8 +11,35 @@ Bertrand Deroin.
   of the circle.
 \newblock {\em Ergodic Theory Dynam. Systems}, 33(2):400--415, 2013.
 
+\bibitem[Der20]{Deroin2020}
+Bertrand Deroin.
+\newblock Locally discrete expanding groups of analytic diffeomorphisms of the
+  circle.
+\newblock {\em J. Topol.}, 13(3):1216--1229, 2020.
+
+\bibitem[DKN07]{DeroinKleptsynNavas2007}
+Bertrand Deroin, Victor Kleptsyn, and Andr\'{e}s Navas.
+\newblock Sur la dynamique unidimensionnelle en r\'{e}gularit\'{e}
+  interm\'{e}diaire.
+\newblock {\em Acta Math.}, 199(2):199--262, 2007.
+
+\bibitem[Ers04]{Erschler2003}
+Anna Erschler.
+\newblock Liouville property for groups and manifolds.
+\newblock {\em Invent. Math.}, 155(1):55--80, 2004.
+
+\bibitem[Ghy01]{Ghys2001}
+\'{E}tienne Ghys.
+\newblock Groups acting on the circle.
+\newblock {\em Enseign. Math. (2)}, 47(3-4):329--407, 2001.
+
+\bibitem[GS87]{GhysSergiescu1987}
+\'{E}tienne Ghys and Vlad Sergiescu.
+\newblock Sur un groupe remarquable de diff\'{e}omorphismes du cercle.
+\newblock {\em Comment. Math. Helv.}, 62(2):185--239, 1987.
+
 \bibitem[Kai85]{Kaimanovich1985}
-V.~A. Kaimanovich.
+Vadim~A. Kaimanovich.
 \newblock An entropy criterion of maximality for the boundary of random walks
   on discrete groups.
 \newblock {\em Dokl. Akad. Nauk SSSR}, 280(5):1051--1054, 1985.
@@ -17,11 +49,36 @@ Vadim~A. Kaimanovich.
 \newblock The {P}oisson formula for groups with hyperbolic properties.
 \newblock {\em Ann. of Math. (2)}, 152(3):659--692, 2000.
 
+\bibitem[Kai17]{Kaimanovich2017}
+Vadim~A. Kaimanovich.
+\newblock Thompson's group {$F$} is not {L}iouville.
+\newblock In {\em Groups, graphs and random walks}, volume 436 of {\em London
+  Mathematical Society Lecture Note Series}, pages 300--342. Cambridge
+  University Press, Cambridge, 2017.
+
+\bibitem[Lal23]{Lalley2023}
+Steven~P. Lalley.
+\newblock {\em Random walks on infinite groups}, volume 297 of {\em Graduate
+  Texts in Mathematics}.
+\newblock Springer, Cham, 2023.
+
+\bibitem[Mal17]{Malicet2017}
+Dominique Malicet.
+\newblock Random walks on {${\rm Homeo}(S^1)$}.
+\newblock {\em Comm. Math. Phys.}, 356(3):1083--1116, 2017.
+
 \bibitem[Nav18]{Navas2018}
 Andr{\'e}s Navas.
 \newblock Group actions on 1-manifolds: a list of very concrete open questions.
 \newblock In {\em Proceedings of the {I}nternational {C}ongress of
   {M}athematicians---{R}io de {J}aneiro 2018. {V}ol. {III}. {I}nvited
-  lectures}, pages 2035--2062. World Sci. Publ., Hackensack, NJ, 2018.
+  lectures}, pages 2035--2062. World Scientific Publishing, Hackensack, NJ,
+  2018.
+
+\bibitem[Sta21]{Stankov2021}
+Bogdan Stankov.
+\newblock Non-triviality of the {P}oisson boundary of random walks on the group
+  {$H(\Bbb{Z})$} of {M}onod.
+\newblock {\em Ergodic Theory Dynam. Systems}, 41(4):1160--1189, 2021.
 
 \end{thebibliography}

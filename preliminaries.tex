@@ -1,0 +1,129 @@
+\section{Preliminaries} In this section we recall the theory of random walks on groups and of groups acting on the circle. For more information on this material see \cite{Lalley2023, Ghys2001}.
+
+%\subsection{Conventions} Given a left action $G \curvearrowright X$ of a group $G$ on a set $X$, a point $x \in X$ and a finite generating set $S \subseteq G$, the \emph{Schreier graph} $\mathrm{Sch}(S, x)$ is the graph with vertex set $\mathrm{Orb}_G(x) = \{g.x \mid g \in G\}$ and with edges $\{(g.x, sg.x) \mid s \in S,\, g \in G\}$.
+
+\subsection{Groups acting on the circle}
+Recall important things about groups acting on the circle.
+% \red{Tengo una pregunta: toma una trayectoria (hasta tiempo $n$) de un paseo aleatorio no-degenerado en $T$. Define $M(n)$ la cantidad de momentos a lo largo de esta trayectoria en que ocurrió una "subdivisión del dominio"; en el sentido en que hasta antes de ese momento bastaba subdividir $S^1$ en intervalos de largo $1/2^k$ y en el siguiente paso fue necesario dividir $S^1$ en intervalos de $1/2^{k+algo}$. Es cierto que $M(n)$ crece linealmente? con qué hipótesis on $\mu$? Creo que esto está relacionado a la transiencia del grafo de Schreier.}
+
+% \red{Hola Martín! Creo que ya caché precisamente el enunciado que debemos demostrar. Estoy 85\% seguro de que, teniendo esto, ya tenemos la demostración basicamente completa. Puedes pensar en cómo demostrarlo? Creo que debe estar muy relacionado a la transiencia del grafo de Schreier. Abajo escribiré el enunciado de lo que debemos demostrar:}
+
+% Consider a (finitely supported, non-degenerate) probability measure $\mu$ on $T$. For a given sample path $\{w_n\}_{n\ge 1}$ of the $\mu$-random walk on $T$, denote by $r\in S^1$ the associated boundary point. Consider a small interval $I$ that is very far away from $r$ (for example such that it is disjoint from another small interval around $r$) (it would be enough to prove it, for example, for $I$ the interval with endpoints $r+1/2\pm 1/8$). Consider the following process that defines a list of subintervals of $S^1$:
+% \begin{enumerate}
+%     \item Start with the list $L=\{I\}$ and let $k=1$.
+%     \item look at the interval $w_k^{-1}(I).$ If it is disjoint from all elements of $L$, update $L$ by adding $w_k^{-1}(I)$ to it. Otherwise, keep $L$ as it is.
+%     \item  Make $k=k+1$, and repeat the second step. terminate when $k=n$ (where $n$ is some arbitrary value that is large).
+% \end{enumerate}
+% This defines a finite list $L$ of subintervals of $S^{1}$ that are all pairwise disjoint. Of course, we always have $|L|\le n$ (at most we added a new interval at each step). The question is: how many elements does $L$ contain in expectation? We NEED to show that $\lim_{n\to \infty}\E[|L|]/n$ is a strictly positive constant.
+
+% Remark: In the notation I am using, the functions act on the LEFT, so that for example $g_1 \circ g_2 \circ g_3 $  evaluated on $x\in S^1$ is the value $g_3(g_2(g_1(x)))$.
+\section{Preliminaries: the entropy method for Poisson boundaries}
+Recall that the \emph{entropy} of a discrete random variable $X$ is
+$$H(X) := -\sum_x \P(X=x) \cdot \log P(X=x).$$
+Given a $\sigma$-algebra $\mathcal{F}$, the \emph{conditional entropy} of X is
+$$H(X|\mathcal{F}) := - \E \left[\sum_x \P(X=x|\mathcal{F}) \cdot \log P(X=x|\mathcal{F})\right].$$
+Recall that we always have $H(X) \leq H(X|\mathcal{F})$.
+Also, for any discrete random variables $X$ and $Y$ $H((X,Y)) \leq H(X) + H(Y)$ with equality if and only if $X$ and $Y$ are independent.
+
+Consider the Borel $\sigma$-algebra of $\mathbb{S}^1$ which gives us a $\sigma$-algebra of tail events of $G^\N$ by considering the events $\{\xi(w) \in B\}$ for every Borel subset $B \subset \mathbb{S}^1$.
+For any discrete random variable on $G^\N$, we will write 
+$H(X|\mathbb{S}^1) = - \E_\xi H^{\xi}(X)$
+where $H^{\xi_0}(X) = H(\{X|\xi(X)=\xi_0\})$.
+
+\subsection{Kaimanovich's relative entropy criterion}
+
+The following criterion goes back to \cite[Theorem 2]{Kaimanovich1985}.
+See also \cite[Theorem 4.6]{Kaimanovich2000} or Theorem 14.35 in the book of Lyons-Peres.
+Recall that a $\mu$-boundary $(X,\lambda)$ of a countable group $G$ with probability measure $\mu$ on $G$ is ....
+
+\begin{thm}[Kaimanovich's conditional entropy criterion] Let $G$ be a countable group and let $\mu$ be a probability measure on $G$ with $H(\mu)<\infty$. Consider a $\mu$-boundary $(X,\lambda)$ of $G$. Then $(X,\lambda)$ is the Poisson boundary of $(G,\mu)$ if and only if 
+$$\lim_{n\to \infty} \frac{H(w_n|X)}{n} = 0$$
+where $\{w_n\}_n$ is the $\mu$-random walk on $G$.
+\end{thm}
+To prove Theorem \ref{thm:entropy}, it suffices to show
+$$H(w_n|\mathbb{S}^1) \gtrsim n.$$
+
+\subsection{Erschler's lower bound on entropy}
+To show a lower bound on the conditional entropy, we will use a method of \cite{Erschler2003}.
+In \cite{Erschler2003}, the method is used for unconditional entropy, to show that certain groups are non-Louiville.
+Here we will use this method for the conditional entropy.
+
+\textbf{WRITING QUESTION}: Maybe add 3 sentences about 3D lamplighters for context?
+
+Next, we recall some definitions regarding Erschler's method and state the unconditional version of the theorem.
+
+Let $G$ be a countable group and $\mu$ is a probability measure on $G$ with $H(\mu)<\infty$.  Consider a non-trivial $\mu$-boundary $(X,\lambda)$ of $G$.
+%NOT NEEDED, RIGHT? Denote by $\pi \colon (G^{\N}, \P)  \to (X, \lambda)$ the associated boundary map.
+
+A \emph{collection of length $n \in \N$} is a tuple $(w, i_1, \ldots, i_k)$ where $0 < i_1 < \cdots < i_k \leq n$ are integers and \[w = (x_1, x_2,\ldots, x_{i_1-1}, x_{i_1 + 1},\ldots, x_{i_2 - 1}, x_{i_2 + 1}, \ldots, x_{i_k-1}, x_{i_k + 1}, \ldots, x_n)\] is an $(n-k)$-tuple of elements of $\mathrm{supp}(\mu)$. Notice that we index the elements of $w$ by integers in $\{1,\ldots, n\} \setminus \{i_1,\ldots, i_k\}$.
+
+\textbf{WRITING CONCERN}: We really need a name for the parameter $k$. It sounds too technical to refer to "$k$" all the time.
+
+Given $a,b \in \mathrm{supp}(\mu)$ and $q = (w, i_1, \ldots, i_k)$ a collection of length $n$, define $T^{a,b}(q)$ as the \emph{set of trajectories} $(y_1, \ldots, y_n) \in G^n$ such that (after setting $x_0 = e_G$)
+\begin{itemize}
+    \item for all $l \in \{1,\ldots, n\} \setminus \{i_1,\ldots, i_k\}$ we have $y_l = y_{l-1}x_l$, and
+    \item for all $l \in \{i_1, \ldots, i_l\}$, we have $y_l = y_{l-1} a$ or $y_l = y_{l-1} b$. 
+\end{itemize} Thus $T^{a,b}(q)$ is a set of $2^k$ trajectories. We say that $T^{a,b}(q)$ is \emph{satisfactory} if all trajectories in $T^{a,b}(q)$ arrive at different elements of $G$ at time $n$.
+
+\begin{thm}[Erschler \cite{Erschler2003}] 
+Suppose that there exist $p,c>0$ such that for each $n \in \N$ there is a set $A_n$ of collections of length $n$ such that
+	\begin{enumerate}
+		\item \label{item:entropy1} for each $q=(w,i_1,\ldots, i_k)\in A_n$ we have $k\ge cn$.
+		\item \label{item:entropy3} for each $q\in A_n$ the set of trajectories $T^{a,e_G}(q)$ is satisfactory.
+		\item \label{item:entropy4} for each $q_1,q_2\in A_n$ with $q_1\neq q_2$ we have $T^{a,e_G}(q_1)\cap T^{a,e_G}(q_2)= \emptyset$.
+		\item \label{item:entropy5} for each $n\ge 1$ it holds that
+		\[
+		\P\left[ \bigcup_{q\in A_n}T^{a,e_G}(q)\right]\ge p.
+		\]
+	\end{enumerate}
+	Then $H(w_n) \gtrsim n$.
+\end{thm}
+
+\subsection{Using disjoint intervals to construct satisfactory sets of trajectories}
+
+In order to show $H(w_n|\mathbb{S}^1) \gtrsim n$, we will construct for
+%each $\xi \in \mathbb{S}^1$ and 
+each $n\in\N$ a set $A_{n}$ of collections of length $n$.
+Fix an element $a \in G$, $a \neq 1$, and a closed interval $I \subset S^1$ such that $\mathrm{supp}(a) \subseteq I$. 
+%and $\nu(I) < 1$. WE HAVE NOT INTRODUCED NU YET.
+
+Consider a collection $(w, i_1, \ldots, i_k)$ where $w = \{x_l\}_{l \in \{1,\ldots, n\}\setminus \{i_1,\ldots, i_k\}}$ and define for all $1 \leq j \leq k$ the elements
+\begin{equation}\label{eq:gj}
+\tilde{w}_j = x_1x_2 \cdots x_{i_1 - 1} x_{i_1 + 1} \cdots x_{i_j-1}
+\end{equation}
+and 
+\[
+\tilde{g}_j = x_{i_{j-1}+ 1} \cdots x_{i_j - 1}, 
+\]so $\tilde{w}_j = \tilde{g}_1\cdots \tilde{g}_j$. 
+The product in \eqref{eq:gj} is taken over the indices $l  \in \{1,\ldots, n\}\setminus \{i_1,\ldots, i_k\},\, l < i_j$. By definition, we set $i_0 = 0$.
+
+We say that $(w, i_1, \ldots, i_k)$ is \emph{good} if the intervals $I, \tilde{w}_1(I),\ldots, \tilde{w}_k(I)$ are pairwise disjoint.
+\begin{proposition}
+    Let $q$ be a good collection. Then $T^{a, e_T}(q)$ is satisfactory.
+\end{proposition}
+\begin{proof}
+    Write $q = (w, i_1, \ldots, i_k)$ and $\tilde{g_1},\ldots, \tilde{g_k},\, \tilde{w_1},\ldots, \tilde{w_k}$ %\, w = \{x_k\}_{l \in \{1,\ldots, n\} \setminus \{i_1,\ldots, i_k\}}$ and $g_1,\ldots, g_k$ 
+    as in the definition of a good collection. Consider two distinct trajectories $\mathbf{f}, \mathbf{h} \in T^{a,e_T}(q)$ and let $1\leq j \leq k$ be the largest index such that the increments at time $i_j$ in $\mathbf{f}$ and $\mathbf{h}$ are different. We may assume that this increment is $a$ in $\mathbf{f}$ and $e_G$ in $\mathbf{h}$. Write
+    \[
+    f_n = \tilde{g}_1 a_1 \tilde{g}_2 a_2 \cdots a_{j-1}\tilde{g}_j a u \quad \text{ and } \quad h_n = \tilde{g}_1 b_1\tilde{g}_2 b_2 \cdots b_{j-1} \tilde{g}_j u
+    \]where the $a_k, b_k$ are in $\{a, e_G\}$ for all $k = 1,\ldots, j-1$. 
+    
+    We claim that
+    \[
+    \restr{(\tilde{g}_1 a_1 \cdots a_{j-1}\tilde{g}_j)}{I} = \restr{(\tilde{g}_1b_1  \cdots b_{j-1}\tilde{g}_j)}{I}.
+    \] Indeed, first notice that since the intervals \[
+    \tilde{w}_{j-1}(I), \tilde{w}_{j-2}(I),\ldots, \tilde{w}_1(I)
+    \]are disjoint from $\tilde{w}_j(I)$, it follows that the intervals
+    \[
+    \tilde{g}_j^{-1}(I), (\tilde{g}_{j-1}\tilde{g}_j)^{-1}(I),\ldots, (\tilde{g}_2\cdots \tilde{g}_j)^{-1}(I)
+    \]are all disjoint from $I$. Now
+    \[
+    \restr{(a_{j-1}\tilde{g}_j)}{I} = \restr{(b_{j-1}\tilde{g}_j)}{I}
+    \] since $\tilde{g}_j^{-1}(I)$ is disjoint from $I$. In the same way, we see inductively that for all $k = j, j-1,\ldots, 1$, the equality
+    \[
+     \restr{(a_k \tilde{g}_{k+1} \cdots a_{j-1}\tilde{g}_j)}{I} = \restr{(b_k \tilde{g}_{k+1}\cdots b_{j-1}\tilde{g}_j)}{I}
+    \]follows from the fact that $(\tilde{g}_k \cdots \tilde{g}_j)^{-1}(I)$ is disjoint from $I$. This proves the claim.
+
+    Thus $f_n$ differs from $h_n$ on $u^{-1}(I)$, and we conclude that $T^{a, e_T}(q)$ is satisfactory. 
+\end{proof}
+

@@ -1,0 +1,242 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french,english]{babel}
+%\usepackage{geometry} 
+%\geometry{a4paper}
+
+%\geometry{%
+%	a4paper,                % format de papier
+%	% Définition des marges :
+%	left= 3cm,            % marge intérieure à la page
+%	right = 3cm,          % marge extérieure
+%	top = 3cm,
+%	bottom = 3cm,
+%	% En-tête et pied de page :
+%	headheight=6mm,         % espace réservé à l'en-tête dans la marge top
+%	headsep=9mm,            % espace entre le corps et l'en-tête
+%	footskip=9mm            % espace entre le corps et le pied de page
+%}
+
+\usepackage[margin=1 in]{geometry}
+\renewcommand{\baselinestretch}{1.2}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption} 
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{paralist}
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\usepackage{enumitem}
+\renewcommand{\labelitemi}{\textperiodcentered}
+
+%\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+%\fancyhf{}
+%\fancyhead[LE]{\leftmark}
+%\fancyhead[RO]{\rightmark}
+%\fancyfoot[C]{\thepage}
+\fancyhf{}
+\fancyhead[RO,LE]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[RO,RE]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}}
+\newcommand*{\img}[1]{%
+	\raisebox{-.0\baselineskip}{%
+		\includegraphics[
+		height=\baselineskip,
+		width=\baselineskip,
+		keepaspectratio,
+		]{#1}%
+	}%
+}
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+\usepackage{comment} 
+\usepackage{diagbox}
+\usepackage{xcolor}
+\usepackage{epigraph}
+
+\usepackage[noadjust]{cite}
+\usepackage[
+pagebackref=true,
+%colorlinks=true,
+%urlcolor=purple,
+%linkcolor=purple!87!black,
+%citecolor=green!60!black,
+pdfborder={0 0 0}
+]{hyperref}
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{%{\tiny
+(%
+		\ifcase #1 Not cited.%
+		\or Cited on page~#2.%
+		\else Cited on pages #2.%
+		\fi%
+	)
+ %}
+ }
+\usepackage{cleveref}
+\newcommand{\crefrangeconjunction}{--}
+\newcommand\pcref[1]{(\cref{#1})}
+\newcommand{\prange}[2]{(\labelcref{#1})--(\labelcref{#2})}
+\usepackage{bookmark}
+\usepackage{dsfont}
+\newcommand{\id}{\mathsf{id}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue!60!black}{#1}}
+\newcommand{\cay}[2]{\mathrm{Cay}(#1,#2)}
+\newcommand{\rank}[1]{\mathrm{rank}(#1)}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Max}[1]{\mathrm{Max}(#1)}
+\newcommand{\Min}[1]{\mathrm{Min}(#1)}
+\newcommand{\gr}[1]{\mathrm{gr}(#1)}
+\newcommand{\supp}[1]{\mathrm{supp}(#1)}
+\newcommand{\hceil}[1]{\Big\lceil #1 \Big\rceil}
+\newcommand{\hfloor}[1]{\Big\lfloor #1 \Big\rfloor}
+\newcommand{\sws}{S_{\mathrm{sws}}}
+\newcommand{\std}{S_{\mathrm{std}}}
+\newcommand{\TS}[3]{\mathrm{TS}\left(#1,#2,#3\right)}
+\newcommand{\genlamplighter}[2]{#1 \wr #2}
+\newcommand{\cyclic}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\lamplighter}[1]{\mathbb{Z}/2\mathbb{Z}\wr #1}
+\newcommand{\midscaled}{\;\middle|\;}
+\usepackage{tikz}
+\usetikzlibrary{patterns,positioning,arrows,decorations.markings,calc,decorations.pathmorphing,decorations.pathreplacing}
+\usetikzlibrary{fadings}
+\usepackage{forest}
+\usepackage{tikz-qtree}
+\RequirePackage{pgffor} 
+\makeatletter
+\newcommand{\neutralize}[1]{\expandafter\let\csname c@#1\endcsname\count@}
+\makeatother
+
+\newenvironment{questionbis}[1]
+{\addtocounter{thm}{-1}
+	\renewcommand{\thethm}{\ref*{#1}$'$}%
+	\neutralize{question}\phantomsection
+	\begin{question}}
+	{\end{question}}
+
+\newcommand{\thistheoremname}{}
+
+\newtheorem*{genericthm*}{\thistheoremname}
+\newenvironment{namedthm*}[1]
+{\renewcommand{\thistheoremname}{#1}%
+	\begin{genericthm*}}
+	{\end{genericthm*}}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section] % reset theorem numbering for each chapter
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem*{claim*}{Claim}
+\newtheorem{corollary}[thm]{Corollary}
+\theoremstyle{definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{definition}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+\newtheorem{question}[thm]{Question}
+\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{condition}{Condition}
+
+% \mathbb
+\def\A{{\mathbb A}}
+\def\B{{\mathbb B}}
+\def\C{{\mathbb C}}
+\def\D{{\mathbb D}}
+\def\E{{\mathbb E}}
+\def\F{{\mathbb F}}
+\def\G{{\mathbb G}}
+\def\H{{\mathbb H}}
+\def\I{{\mathbb I}}
+\def\J{{\mathbb J}}
+\def\K{{\mathbb K}}
+\def\L{{\mathbb L}}
+\def\M{{\mathbb M}}
+\def\N{{\mathbb N}}
+\def\O{{\mathbb O}}
+\def\P{{\mathbb P}}
+\def\Q{{\mathbb Q}}
+\def\R{{\mathbb R}}
+\def\S{{\mathbb S}}
+\def\T{{\mathbb T}}
+\def\U{{\mathbb U}}
+\def\V{{\mathbb V}}
+\def\W{{\mathbb W}}
+\def\X{{\mathbb X}}
+\def\Y{{\mathbb Y}}
+\def\Z{{\mathbb Z}}
+
+% \mathcal 
+\def\cA{{\mathcal A}}
+\def\cB{{\mathcal B}}
+\def\cC{{\mathcal C}}
+\def\cD{{\mathcal D}}
+\def\cE{{\mathcal E}}
+\def\cF{{\mathcal F}}
+\def\cG{{\mathcal G}}
+\def\cH{{\mathcal H}}
+\def\cI{{\mathcal I}}
+\def\cJ{{\mathcal J}}
+\def\cK{{\mathcal K}}
+\def\cL{{\mathcal L}}
+\def\cM{{\mathcal M}}
+\def\cN{{\mathcal N}}
+\def\cO{{\mathcal O}}
+\def\cP{{\mathcal P}}
+\def\cQ{{\mathcal Q}}
+\def\cR{{\mathcal R}}
+\def\cS{{\mathcal S}}
+\def\cT{{\mathcal T}}
+\def\cU{{\mathcal U}}
+\def\cV{{\mathcal V}}
+\def\cW{{\mathcal W}}
+\def\cX{{\mathcal X}}
+\def\cY{{\mathcal Y}}
+\def\cZ{{\mathcal Z}}
+
+\let\epsilon\varepsilon
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+\newtheorem{thmA}{Theorem}
+\renewcommand{\thethmA}{\Alph{thmA}}
+\newtheorem{corA}[thmA]{Corollary}
+\renewcommand{\thecorA}{\Alph{corA}}
+\newtheorem{propA}[thmA]{Proposition}
+\renewcommand{\thepropA}{\Alph{propA}}

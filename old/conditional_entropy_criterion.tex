@@ -1,0 +1,98 @@
+\section{The conditional entropy criterion and non-maximality of a $\mu$-boundary}
+
+The following criterion goes back to \cite[Theorem 2]{Kaimanovich1985} (see also \cite[Theorem 4.6]{Kaimanovich2000})
+\begin{thm}[Kaimanovich's conditional entropy criterion] Let $G$ be a countable group and let $\mu$ be a probability measure on $G$ with $H(\mu)<\infty$. Consider a $\mu$-boundary $(X,\lambda)$ of $G$. Then $(X,\lambda)$ is the Poisson boundary of $(G,\mu)$ if and only if for $\lambda$-almost every $\xi\in X$ we have $h^{\xi}(\mu)=0$.
+\end{thm}
+
+
+\subsection{Conditional version of Anna's entropy method}
+\begin{defn}
+	Let $G$ be a countable group and consider a probability measure $\mu$ on $G$ with $H(\mu)<\infty$. Consider a non-trivial $\mu$-boundary $(X,\lambda)$ of $G$. Denote by $\pi:G^{\Z_{+}}\to X$ the associated boundary map.
+	
+	Consider a measurable subset $Y\subseteq X$ with $\lambda(Y)>0$. We say that an element $a\in G$ is $Y$-stable if for every measurable subset $A\subseteq Y$ with $\lambda(A)>0$ and $\P$-almost every sample path $\mathbf{w}=\{w_n\}_{n\ge 0}\in G^{\Z_{+}}$ we have
+	\[
+	\pi(g\mathbf{w})\in A \Longleftrightarrow \pi (ga\mathbf{w}) \in A,
+	\]
+	for every $g\in G$ such that $g^{-1}Y\subseteq Y$.
+\end{defn}
+
+\begin{lem}\label{lem: invariant Radon nykodym derivative}
+	Let $G$ be a countable group and consider a probability measure $\mu$ on $G$ with $H(\mu)<\infty$. Consider a non-trivial $\mu$-boundary $(X,\lambda)$ of $G$, and fix a measurable subset $Y\subseteq X$ with $\lambda(Y)>0$. Let $a\in G$ be a $Y$-stable element. Then for $\lambda$-almost every $\xi \in Y$ and every $g\in G$ such that $g^{-1}Y\subseteq Y$ we have
+	\[
+	\frac{d(ga)_{*}\lambda}{dg_{*}\lambda}(\xi)=1.
+	\] 
+\end{lem}
+\begin{proof}
+	Indeed, let $A\subseteq Y$ be any measurable subset with $\lambda(A)>0$. Then
+	\begin{align*}
+	g_{*}\lambda(A)&=\lambda(g^{-1}A)\\
+	&=\P(\pi(\mathbf{w})\in g^{-1}A)\\
+	&=\P(\pi(g\mathbf{w})\in A)\\
+	&=\P(\pi(ga\mathbf{w}\in A))\\
+	&=\P(\pi(\mathbf{w})\in (ga)^{-1}A)\\
+	&=(ga)_{*}\lambda(A).
+	\end{align*}
+\end{proof}
+
+%\begin{defn}
+%Given a sample path $\mathbf{w}\coloneqq\{w_n\}_{n\ge 0}\in G^{\Z_{+}}$, an element $a\in G$ and $N\ge 0$, define the sample path $\mathbf{\widetilde{w}}^N=\{\widetilde{w}^N_n\}_{n\ge 0}\in G^{\Z_{+}}$ by $\widetilde{w}^N_k\coloneqq w_k$ if $k< N$, $\widetilde{w}_N\coloneqq a$, and $\widetilde{w}^N_k\coloneqq w_{k-1}$ for $k> N$. We say that $\mathbf{w}$ is \emph{$a$-stable} if $\pi(\mathbf{w})=\pi(\mathbf{\widetilde{w}}^N)$, for all $N\ge 0$.	
+%\end{defn}
+%
+%\begin{lem}\label{lem: invariant Radon nykodym derivative}
+%	Consider a $\mu$-boundary $(X,\lambda)$ of $G$, and let $Y\subseteq X$ be a measurable subset with $\lambda(Y)>0$. Let $a\in G$ be an element such that $\P(\{\mathbf{w}\in G^{\Z_{+}}\mid \pi(\mathbf{w})\in Y \text{ and } \mathbf{w} \text{ is not }a\text{-stable}\})=0$. Then
+%	\[
+%	\frac{d (w_n a)_{*}\lambda}{d(w_n)_{*}\lambda}(\xi)=1, \text{ for }\lambda \text{-almost every }\xi \in Y.
+%	\]
+%\end{lem}
+%\begin{proof}
+%	\red{Is this true? I think that it should be true.}
+%\end{proof}
+
+
+For $\lambda$-almost every $\xi \in X$ one can consider the conditional probability measure $\P^{\xi}$, so that one has $\P=\int_{X}\P^{\xi}d\lambda(\xi)$. These measures are Markov and determine homogeneous (in time, not space) Markov chains on $G$ with transition probabilities
+\[
+\P^{\xi}(w_{n+1}=g\mid w_n=h)=\P(w_{n+1}=g\mid w_n=h)\frac{dg_{*}\lambda}{dh_{*}\lambda}(\xi)=\mu(h^{-1}g)\frac{dg_{*}\lambda}{dh_{*}\lambda}(\xi),
+\]
+for each $g,h\in G.$ Lemma \ref{lem: invariant Radon nykodym derivative} implies that for moments where we multiply by $a$ then we have the value $\mu(a)$ as a transition probability in the conditional random walk. Similarly for the identity element.
+
+\begin{rem}
+\end{rem}
+
+\begin{thm} Let $Y\subseteq X$ be a measurable subset with $\lambda(Y)>0$. Let $a\in G$ be a $Y$-stable element. Suppose that for $\lambda$-almost every $\xi \in Y$ there exist $p,c>0$ such that for each $n$ there is $A_n$ a set of collections $q=(w,i_1,\ldots, i_k)$ such that
+	\begin{enumerate}
+		\item For each $q=(w,i_1,\ldots, i_k)\in A_n$ we have $k\ge cn$.
+		\item \red{this should be written better.} The increment $g$ between two "empty spots" should satisfy $g^{-1}Y\subseteq Y$.
+		\item For each $q\in A_n$ the set of trajectories $T^{a,e_G}(q)$ is satisfactory.
+		\item For each $q_1,q_2\in A_n$ with $q_1\neq q_2$ we have $T^{a,e_G}(q_1)\cap T^{a,e_G}(q_2)= \emptyset$.
+		\item For each $n\ge 1$ it holds that
+		\[
+		\P^{\xi}\left(\bigcup_{q\in A_n}T^{a,e_G}(q)\right)\ge p.
+		\]
+	\end{enumerate}
+	Then $h^{\xi}(\mu)>0$ for $\lambda$-almost every $\xi \in Y$.
+\end{thm}
+\begin{proof}
+	The proof follows the next steps.
+	\begin{enumerate}
+	\item We have $h^{\xi}(\mu)=\lim_{n\to \infty} \frac{H_{\xi}(\alpha_n)}{n}$, where $\alpha_n$ is the partition where two trajectories $\mathbf{w}, \mathbf{w}^{\prime}$ are equivalent if and only if $w_n=w^{\prime}_n$.
+	\item Let $\nu$ be the conditional measure of $\mu$ on the set $\{e_G,a\}$. Then for every $q\in A_n$ and $\lambda$-almost every $\xi\in Y$, the normalized restriction of $\P^{\xi}$ restricted to $T^{a,e_G}(q)$ is the product measure $\nu^k$. Here is where we use Lemma \ref{lem: invariant Radon nykodym derivative}.
+	\item The rest of the proof is analogous to Anna's. We have
+	$$
+	H(\nu^k)=kH(\nu)\ge cnH(\nu).
+	$$
+	\item Additionally, we have
+	\begin{align*}
+		H_{\xi}(\alpha_n)&\ge \sum_{q\in A_n}H_{\xi}(\alpha_n\mid T^{a,e_G}(q))\P^{\xi}(T^{a,e_G}(q))\\
+		&\ge  cnH(\nu)\sum_{q\in A_n}\P^{\xi}(T^{a,e_G}(q))\\
+		&=cnH(\nu)\P^{\xi}\left(\bigcup_{q\in A_n}T^{a,e_G}(q)\right)\\
+		&\ge pcnH(\nu).
+	\end{align*}
+\item We conclude that for every $n\ge 1$ we have
+$$
+\frac{H_{\xi}(\alpha_n)}{n}\ge pcH(\nu),
+$$
+and hence $h^{\xi}(\mu)>pcH(\nu)>0$.
+
+	\end{enumerate}
+	
+\end{proof}

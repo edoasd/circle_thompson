@@ -1,0 +1,42 @@
+\section{Introduction}
+Let $G$ be a group of orientation-preserving homeomorphisms of the circle $S^1$ that acts proximally on $S^1$, that is, such that for all $x \neq y \in S^1$ and $\epsilon > 0$ there is a $g \in G$ with $d(gx,gy) < \epsilon$. Given a nondegenerate measure $\mu$ on $G$, by \cite{DeroinKleptsynNavas2007} there exists a unique $\mu$-stationary probability measure $\nu$ on $S^1$, and moreover for almost every realization of the left random walk $\mathbf{w} = \{w_n\}_{n \in \N} \in G^{\N}$ driven by $\mu$ there exists a point $\xi(\mathbf{w}) \in S^1$ such that
+\[
+w_n \nu \xrightarrow[n \to \infty]{}\delta_{\xi(\omega)}
+\]in the weak-$\ast$ topology.
+% such that every closed interval $I \subseteq S^1 \setminus \{\sigma(\mathbf{w})\}$ is contracted by the $w_n$, meaning 
+%$\mathrm{diam}(w_n(I)) \xrightarrow{n \to \infty}0$
+The distribution of $\xi(\mathbf{w})$ coincides with $\nu$, %with the unique $(G, \mu)$-stationary measure $\nu$ on the circle, 
+and furnishes a natural example of a $(G, \mu)$-boundary in the sense of Furstenberg.
+
+By work of B. Deroin \cite{Deroin2013}, this specific boundary is known to coincide with the whole Poisson boundary of $(G, \mu)$ for a class of groups $G$ including cocompact lattices in $\mathrm{PSL}_2(\R)$. Nevertheless, this class is confined to groups satisfying very stringent global discreteness properties, analoguous to those of (locally discrete) analytic homeomorphisms of $S^1$.\footnote{When $G$ is composed of analytic maps, these conditions conjecturally imply that $G$ is virtually free or conjugate by an analytic diffeomorphism to a cocompact lattice of $\mathrm{PSL}_2(\R)$, see \cite{Deroin2020}.}
+
+In this note we are interested in Thompson's group $T$, which is the group of dyadic piecewise affine homeomorphisms of the circle: this is the group of orientation-preserving homeomorphisms $g$ of $S^1$ such that the derivative of $g$ is defined outside a finite set inside $\Z[1/2]/\Z$ and takes values in $\{2^k\}_{k \in \Z}$. 
+%Thompson's group $T$ acts on the circle $S^1$, and for any probability measure $\mu$ on $T$ there is a unique $\mu$-stationary measure on $S^1$.\red{are there any assumptions on the measure? non-degenerate probably? some moment assumption?}. 
+The objective of this paper is to prove that $(S^1,\nu)$ is not the Poisson boundary of the random walk on $T$ driven by $\mu$. This answers a question asked in \cite[Section 6]{Deroin2013}, and which is asked again in \cite[Question 19]{Navas2018} for finitely supported, non-degenerate and symmetric probability measures on $T$.
+
+We answer this question in two ways. The first one consists in exhibiting a harmonic function that does not arise from  the boundary $(S^1, \nu)$. This harmonic function comes from a boundary originally constructed by V. Kaimanovich for $(F, \eta)$ in \cite{Kaimanovich2017}, where $F$ is Thompson's group acting on $[0,1]$ and $\eta$ is a nondegenerate finitely supported measure. To construct this boundary $(X, \tilde{\nu})$ on $(T, \mu)$, let $X = \mathrm{conf}(\Z[1/2]/\Z, \Z)$ be the set of functions from $\Z[1/2]/\Z$ to $\Z$. The vertex set of the Schreier graph of the $T$-orbit of 0 on $S^1$ is $\Z[1/2]/\Z$, and the random walk driven by $\mu$ on this graph is transient. Much like on lamplighter groups $\Z/2\Z \wr \Z$, the logarithms of the discontinuities of the derivative of the random walk on $T$ stabilize towards a random function $\cC_\infty \in X$. We denote the hitting measure of  $\cC_\infty$ by $\tilde{\nu}$, which will be nonatomic.
+
+\begin{propA}\label{prop:lamps} Suppose that $\mu$ is a nondegenerate  measure on $T$ with finite first moment. 
+    Then the boundary $(X, \tilde{\nu})$ is not a $G$-equivariant factor of $(S^1, \nu)$.
+\end{propA}
+
+Apart from other microsupported groups of piecewise affine or piecewise projective homeomorphisms of $S^1$, the proof of Proposition \ref{prop:lamps} does not generalize well beyond this piecewise setting.
+
+The second answer consists in an adaptation to the conditional entropy setting of a method due to A. Erschler \cite{Erschler2003}, which was used to show that Poisson boundaries of nontrivial wreath products are nontrivial whenever $\mu$ has finite entropy and the projection to the base group is transient. This method generalizes well to groups of diffeomorphisms of $S^1$ acting proximally that contain a nontrivial element whose support is a strict subinterval of $S^1$.
+
+We need some notation: the \emph{support} of an element $a \in \mathrm{Homeo}(S^1)$ is $\mathrm{supp}(a) = \overline{\{x \in S^1\mid a(x) \neq x\}}$. For $\tau \in (0,1)$ denote $\mathrm{Diff}^{1 + \tau}_+(S^1)$ for the group of orientation-preserving diffeomorphisms of $S^1$ with $\tau$-Hölder derivative. For a function $\phi \colon S^1 \to \R$, write
+%\norm{\phi}_\infty = \sup_{x \in S^1}\abs{\phi(x)}\quad \text{ and } \quad \norm{\phi}_{\infty, \tau} =\sup_{x \neq y \in S^1}\frac{\abs{\phi(x) - \phi(y)}}{d(x,y)^\tau}.\]
+\[\abs{\phi}_{\mathrm{Lip}} = \sup_{x \neq y \in S^1}\frac{\abs{\phi(x) - \phi(y)}}{d(x,y)}\quad \text{ and } \quad \abs{\phi}_{\tau} =\sup_{x \neq y \in S^1}\frac{\abs{\phi(x) - \phi(y)}}{d(x,y)^\tau}.\]
+
+
+%The presence of elements in $T$ of small support  allows the application of this method in this less restrictive (on the measure $\mu$) setting. Actually, the proof only requires this condition. \textcolor{blue}{(?!?)}
+\begin{thmA}\label{thm:entropy}
+Let $G \leq \mathrm{Diff}^1_+(S^1)$ be a group acting proximally and minimally on $S^1$ such that there exists an $a \in G$ with support equal to a closed proper subinterval of $S^1$. Let $\mu$ be a nondegenerate measure on $G$ such that either
+\begin{itemize}
+         \item the support of $\mu$ is finite, or
+     \item the support of $\mu$ is included in $\mathrm{Diff}^{1 + \tau}_+(S^1)$ for some $\tau \in (0,1)$ and the integrals \[\int_{G} \max\left\{\abs{g}_{\mathrm{Lip}}, \abs{g^{-1}}_{\mathrm{Lip}}\right\}^\delta \dd \mu(g) \quad \text{ and }\quad \int_{G} \abs{\log g'}_{\tau} \dd \mu(g)\] are finite for some $\delta > 0$.
+ \end{itemize}
+ 
+Then $(S^1,\nu)$ is not the Poisson boundary of $(G, \mu)$.
+\end{thmA}
+Notice that Theorem \ref{thm:entropy} generalizes Proposition \ref{prop:lamps} when $\mu$ is of finite support, since by \cite[Théorème A]{GhysSergiescu1987} there exists $h \in \mathrm{Homeo}_+(S^1)$ such that $hTh^{-1}$ lies in  $\mathrm{Diff}^\infty_+(S^1)$.
